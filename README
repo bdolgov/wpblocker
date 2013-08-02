@@ -1,0 +1,9 @@
+Средство для борьбы с повышенной нагрузкой на серверы из-за попыток взлома WordPress.
+Для установки: 
+- Установить nginx с perl и ssi
+- Скачать скрипты в /usr/local/wpblocker
+- Убедиться, что в nginx в каждой секции server{} есть директива root на самом верхнем уровне и location @fallback
+- Добавить в секцию http{} include /usr/local/wpblocker/nginx.http.inc;
+- Добавить в каждую секцию server{} include /usr/local/wpblocker/nginx.server.inc;
+
+Доступ разрешается, если существует файл /usr/local/wpblocker/var/[ip-до-последней-точки]-[md5($host)]

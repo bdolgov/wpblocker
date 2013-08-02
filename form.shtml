@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<title>Проверка безопасности</title>
+
+		<style type='text/css'>
+			body {
+				background-color: #EDF2F6;
+			}
+		
+			.box {
+				box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+				background-color: #FFFFFF;
+				border-radius: 5px;
+				margin: 0;
+				margin-bottom: 0px;
+				padding: 10px 10px 0 10px;
+				font-family: sans-serif;
+			}
+			
+			h1, h2 {
+				font-family: sans-serif;
+				margin: 0;
+				padding: 0;
+				color: #1D6D9D;
+				font-size: 28px;
+				margin-bottom: 10px;
+			}																														
+
+			.wrapper {
+				width: 430px;
+				padding: 30px 10px 10px 10px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+
+			ul {
+				display: block;
+				padding: 0;
+			}
+
+			li {
+				display: block;
+				overflow: hidden;
+			}
+
+			li label {
+				float: left;
+				display: block;
+				width: 103px;
+				padding: 5px;
+				font-size: 14px;
+				line-height: 25px;
+				text-align: right;
+		  	}
+
+			li.error {
+padding-left: 113px;
+font-size: 13px;
+font-style: italic;
+color: red;
+	   margin-bottom: 7px;
+			}
+
+			input[type=text] {
+				border: 1px solid #ddd;
+				font-size: 14px;
+				padding: 5px;
+width: 50%;
+margin-left: 0px;
+			}
+
+			input[type=submit] {
+				display: block;
+				border: 0;
+				cursor: pointer;
+				background-color: #1D6D9E;
+				color: white;
+				padding: 7px 10px;
+				font-size: 16px;
+				border-radius: 0px;
+				float: right;
+					   margin-top: 15px;
+					   margin-bottom: 10px;
+			}
+
+			li.info {
+				font-size: 13px;
+				font-style: italic;
+				margin-bottom: 7px;
+			}
+
+			input[type=submit]:hover {
+				background-color: #2385c0;
+		</style>
+	</head>
+	<body>
+	
+		<div class='wrapper'>
+		<div id="form" class='box'>
+			<h1>Подтверждение</h1>
+			<p>Пожалуйста, подтвердите что Вы владелец сайта - введите Ваш логин от Cpanel / FTP</p>
+			<form method="GET" action="/__wpblocker/<!--# echo var="path" -->/auth">
+				<ul>
+					<li>
+						<label>Логин</label>
+						<input type="text" name="password" value=""/>
+					</li>
+			<!--# if expr="$arg_failed = 1" -->
+					<li class='error'>
+						Введён неверный логин. Обратитесь в поддержку.
+					</li>
+			<!--# endif -->
+
+					<li>
+						<input type='submit'/>
+					</li>
+				</ul>
+		</form>
+		</div>
+		</div>
+	</body>
+</html>
