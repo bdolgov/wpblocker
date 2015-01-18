@@ -1,5 +1,6 @@
-location ~* ^/(?<path>.*(wp-login|wp-admin).php)$
+location ~* ^/(?<path>.*((wp-login|wp-admin|admin|administrator/index)\.php|administrator/?))$
 {
+	if (-e /usr/local/wpblocker/whitelist/$host) { return 402; }
 	if (!-e $wpblocker_path)
 	{
 		rewrite ^ /__wpblocker/$path/form last;
